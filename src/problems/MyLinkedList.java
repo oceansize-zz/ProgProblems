@@ -1,5 +1,8 @@
 package problems;
 
+import MyLinkedList;
+import MyLinkedList.Node;
+
 /**
  * For LinkedList<E>
  * get(int index) is O(n)
