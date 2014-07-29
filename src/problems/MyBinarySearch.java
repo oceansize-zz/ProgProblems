@@ -1,6 +1,7 @@
 package problems;
 
 import java.util.AbstractList;
+import java.util.Arrays;
 import java.util.Vector;
 
 public class MyBinarySearch {
@@ -37,8 +38,8 @@ public class MyBinarySearch {
 		if (comparisonResult == 0) {
 			return middlePoint;
 		} else if (comparisonResult > 0) {
-			return MyBinarySearch.findRecursive(valueToFind, sortedValues, 0,
-					middlePoint - 1);
+			return MyBinarySearch.findRecursive(valueToFind, sortedValues,
+					startIndex, middlePoint - 1);
 		} else if (comparisonResult < 1) {
 			return MyBinarySearch.findRecursive(valueToFind, sortedValues,
 					middlePoint + 1, endIndex);
@@ -77,11 +78,13 @@ public class MyBinarySearch {
 		int middlePoint = 0;
 		int comparisonResult = 0;
 		int index = -1;
+		int counter = 0;
 
 		while (endIndex >= startIndex) {
 			middlePoint = GetMidPoint(startIndex, endIndex);
 			comparisonResult = doCompare(sortedValues.get(middlePoint),
 					valueToFind);
+			counter++;
 
 			if (comparisonResult == 0) {
 				index = middlePoint;
@@ -94,7 +97,7 @@ public class MyBinarySearch {
 				startIndex = middlePoint + 1;
 			}
 		}
-
+		System.out.println("iter count: " + counter);
 		return index;
 	}
 
@@ -119,20 +122,29 @@ public class MyBinarySearch {
 	}
 
 	public static void main(String[] args) throws Exception, AssertionError {
-		// TODO Auto-generated method stub
-		AbstractList<Integer> values = new Vector<Integer>();
-		values.add(3);
-		values.add(5);
-		values.add(7);
-		values.add(9);
-		values.add(11);
-		int size = values.size();
+
+		/*
+		 * AbstractList<Integer> values = new Vector<Integer>(); values.add(3);
+		 * values.add(5); values.add(7); values.add(9); values.add(11); int size
+		 * = values.size();
+		 */
+		int[] values = new In(args[0]).readAllInts();
+		Arrays.sort(values);
+		AbstractList<Integer> vectorValues = new Vector<Integer>();
+		for (int i = 0; i < values.length; i++) {
+			vectorValues.add(values[i]);
+		}
+
+		System.out.println("length: " + vectorValues.size());
 
 		System.out.println("Answer: "
-				+ MyBinarySearch.findRecursive(9, values, 0, size - 1));
+				+ MyBinarySearch.findRecursive(982455, vectorValues, 0,
+						vectorValues.size() - 1));
 
 		System.out.println("Answer: "
-				+ MyBinarySearch.findIterative(9, values, 0, size - 1));
+				+ MyBinarySearch.findIterative(982455, vectorValues, 0,
+						vectorValues.size() - 1));
+
 		System.exit(0);
 	}
 }

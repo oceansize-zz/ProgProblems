@@ -19,7 +19,6 @@ package problems;
  * Iterator.remove() is O(n - index)
  * ListIterator.add(E element) is O(n - index)
  * 
- * @author rance
  * 
  */
 public class MyLinkedList {
