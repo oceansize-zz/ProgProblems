@@ -97,7 +97,7 @@ public class MyBinarySearch {
 				startIndex = middlePoint + 1;
 			}
 		}
-		System.out.println("iter count: " + counter);
+		//System.out.println("iter count: " + counter);
 		return index;
 	}
 
