@@ -1,8 +1,6 @@
 package problems;
 
 import java.util.AbstractList;
-import java.util.Arrays;
-import java.util.Vector;
 
 public class MySelectionSort {
 
@@ -46,7 +44,6 @@ public class MySelectionSort {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
 		AbstractList<Integer> vectorValues = MyUtils.getVectorData(args);
 
 		MySelectionSort.sort(vectorValues);
